@@ -1,7 +1,7 @@
 var express = require('express'),
     request = require('request'),
     app = express(),
-    appPort = process.env.PORT || 3000;
+    appPort = process.env.OPENSHIFT_NODEJS_PORT || process.env.PORT || 3000;
 
 app.use('/data', function (req, res) {
     var url = 'http://private-aa10d-global1.apiary-mock.com/poll/1';
