@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+ <html lang="en">
+ <head>
+     <meta charset="UTF-8">
+     <title>Document</title>
+     <style type="text/css">
+        picture {
+            position: absolute;
+            top: 50%;
+            left:50%;
+            transform: translateX(-50%) translateY(-50%);
+        }
+        img{
+            max-width:100vw;
+            max-height:100vh;
+        }
+     </style>
+ </head>
+ <body>
+    <picture>
+      <source
+        media="(max-width: 500px)"
+        srcset="img/HTML5_logo_small.jpg">
+      <img
+        src="img/HTML5_logo_big.jpg"
+        alt="HTML 5 logo">
+    </picture>
+ </body>
+ </html>

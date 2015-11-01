@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+
+<body>
+  <h1>Example 1</h1>
+  <h1>Example 1: Watch the memory grow</h1>
+  <ol>
+      <li>Open DevTools</li>
+      <li>Select Timeline Tab</li>
+      <li>Select Memory</li>
+      <li>Record</li>
+      <li>Push The Button</li>
+  </ol>
+  <button onclick="grow()">The Button</button>
+  <div id="nodes" style="display:none"></div>
+
+  <script>
+    var myArr = [],
+        nodesArr = [];
+
+    function createSomeNodes() {
+        var myDiv,
+            myBuf,
+            i = 100,
+            myFrag = document.createDocumentFragment();
+
+        for (; i > 0; i--) {
+            myDiv = document.createElement('div');
+            myBuf = document.createTextNode(i + ' - ' + new Date().toTimeString());
+            myDiv.appendChild(myBuf);
+            myFrag.appendChild(myDiv);
+        }
+
+        document.getElementById('nodes').appendChild(myFrag);
+    }
+
+    function grow() {
+        myArr.push(new Array(1000000).join('x'));
+        createSomeNodes();
+        linkDomNodesToJs();
+        setTimeout(grow, 1000);
+    }
+
+    function linkDomNodesToJs () {
+      var nodes = document.querySelector('#nodes'),
+          divs = nodes.querySelectorAll('div');
+
+      [].forEach.call(divs, function(div, i) {
+        nodesArr.push(div);
+        nodes.removeChild(div);
+      });
+    }
+  </script>
+  <hr>
+  <pre>
+    var myArr = [],
+        nodesArr = [];
+
+    function createSomeNodes() {
+        var myDiv,
+            myBuf,
+            i = 100,
+            myFrag = document.createDocumentFragment();
+
+        for (; i > 0; i--) {
+            myDiv = document.createElement('div');
+            myBuf = document.createTextNode(i + ' - ' + new Date().toTimeString());
+            myDiv.appendChild(myBuf);
+            myFrag.appendChild(myDiv);
+        }
+
+        document.getElementById('nodes').appendChild(myFrag);
+    }
+
+    function grow() {
+        myArr.push(new Array(1000000).join('x'));
+        createSomeNodes();
+        linkDomNodesToJs();
+        setTimeout(grow, 1000);
+    }
+
+    function linkDomNodesToJs () {
+      var nodes = document.querySelector('#nodes'),
+          divs = nodes.querySelectorAll('div');
+
+      [].forEach.call(divs, function(div, i) {
+        nodesArr.push(div);
+        nodes.removeChild(div);
+      });
+    }
+  </pre>
+</body>
+
+</html>
