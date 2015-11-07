@@ -20,79 +20,87 @@
   <div id="nodes" style="display:none"></div>
 
   <script>
-    var myArr = [],
-        nodesArr = [];
+    (function (){
+      var myArr = [],
+          nodesArr = [];
 
-    function createSomeNodes() {
-        var myDiv,
-            myBuf,
-            i = 100,
-            myFrag = document.createDocumentFragment();
+      window.grow = grow;
 
-        for (; i > 0; i--) {
-            myDiv = document.createElement('div');
-            myBuf = document.createTextNode(i + ' - ' + new Date().toTimeString());
-            myDiv.appendChild(myBuf);
-            myFrag.appendChild(myDiv);
-        }
+      function createSomeNodes() {
+          var myDiv,
+              myBuf,
+              i = 100,
+              myFrag = document.createDocumentFragment();
 
-        document.getElementById('nodes').appendChild(myFrag);
-    }
+          for (; i > 0; i--) {
+              myDiv = document.createElement('div');
+              myBuf = document.createTextNode(i + ' - ' + new Date().toTimeString());
+              myDiv.appendChild(myBuf);
+              myFrag.appendChild(myDiv);
+          }
 
-    function grow() {
-        myArr.push(new Array(1000000).join('x'));
-        createSomeNodes();
-        linkDomNodesToJs();
-        setTimeout(grow, 1000);
-    }
+          document.getElementById('nodes').appendChild(myFrag);
+      }
 
-    function linkDomNodesToJs () {
-      var nodes = document.querySelector('#nodes'),
-          divs = nodes.querySelectorAll('div');
+      function grow() {
+          // myArr.push(new Array(1000000).join('x'));
+          // createSomeNodes();
+          // linkDomNodesToJs();
+          // setTimeout(grow, 1000);
+      }
 
-      [].forEach.call(divs, function(div, i) {
-        nodesArr.push(div);
-        nodes.removeChild(div);
-      });
-    }
+      function linkDomNodesToJs () {
+        var nodes = document.querySelector('#nodes'),
+            divs = nodes.querySelectorAll('div');
+
+        [].forEach.call(divs, function(div, i) {
+          nodesArr.push(div);
+          nodes.removeChild(div);
+        });
+      }
+    })();
   </script>
   <hr>
   <pre>
-    var myArr = [],
-        nodesArr = [];
+    (function (){
+      var myArr = [],
+          nodesArr = [];
 
-    function createSomeNodes() {
-        var myDiv,
-            myBuf,
-            i = 100,
-            myFrag = document.createDocumentFragment();
+      window.grow = grow;
 
-        for (; i > 0; i--) {
-            myDiv = document.createElement('div');
-            myBuf = document.createTextNode(i + ' - ' + new Date().toTimeString());
-            myDiv.appendChild(myBuf);
-            myFrag.appendChild(myDiv);
-        }
+      function createSomeNodes() {
+          var myDiv,
+              myBuf,
+              i = 100,
+              myFrag = document.createDocumentFragment();
 
-        document.getElementById('nodes').appendChild(myFrag);
-    }
+          for (; i > 0; i--) {
+              myDiv = document.createElement('div');
+              myBuf = document.createTextNode(i + ' - ' + new Date().toTimeString());
+              myDiv.appendChild(myBuf);
+              myFrag.appendChild(myDiv);
+          }
 
-    function grow() {
-        myArr.push(new Array(1000000).join('x'));
-        createSomeNodes();
-        linkDomNodesToJs();
-        setTimeout(grow, 1000);
-    }
+          document.getElementById('nodes').appendChild(myFrag);
+      }
 
-    function linkDomNodesToJs () {
-      var nodes = document.querySelector('#nodes'),
-          divs = nodes.querySelectorAll('div');
+      function grow() {
+          myArr.push(new Array(1000000).join('x'));
+          createSomeNodes();
+          linkDomNodesToJs();
+          setTimeout(grow, 1000);
+      }
 
-      [].forEach.call(divs, function(div, i) {
-        nodesArr.push(div);
-        nodes.removeChild(div);
-      });
-    }
+      function linkDomNodesToJs () {
+        var nodes = document.querySelector('#nodes'),
+            divs = nodes.querySelectorAll('div');
+
+        [].forEach.call(divs, function(div, i) {
+          nodesArr.push(div);
+          nodes.removeChild(div);
+        });
+      }
+    })();
   </pre>
 </body>
 

@@ -5,15 +5,14 @@
     var prefetched = {
             "articles": []
         };
-
     document.querySelector('button').addEventListener('click', function () {
-        get('/text')
+        fetch('/text')
             .then(function fun1 (stringData) {
                 return resolve(JSON.parse(stringData));
             })
             .then(function fun2 (data){
                 pushToArticles(data);
-                return get('/text');
+                return fetch('/text');
             })
             .then(function fun3 (stringData){
                 pushToArticles(JSON.parse(stringData));
@@ -23,17 +22,7 @@
             })
     });
 
-    function getRandomInt(min, max) {
-      return Math.floor(Math.random() * (max - min + 1)) + min;
-    }
-
-    function randomizer () {
-        var test = getRandomInt(0, 10);
-        console.log('test: ', test);
-        return test > 6;
-    }
-
-    function get(url) {
+    function fetch(url) {
         var request = new XMLHttpRequest(),
             promise = new Promise(function (resolve, reject) {
                 request.open('GET', url);

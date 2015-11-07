@@ -3,29 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <title>Document</title>
+    <!-- this is for tealeaf demo -->
+    <!-- <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script type="text/javascript" src="tealeaf.test.3.1.0.1520.W3C.Sizzle.js"></script> -->
 </head>
 <body>
     <button>Unknown function call</button>
-    <form>
+    <form method="POST" action="/login">
         <label for="username">Username: </label>
-        <input type="text" name="username">
+        <input type="text" name="username" data-tl="username">
         <label for="pass">Password: </label>
-        <input type="text" name="pass">
-        <button type="submit">Login</button>
+        <input type="text" name="pass" data-tl="pass">
+        <button type="submit" data-tl="submit">Login</button>
     </form>
     <div debug-list=""></div>
     <script type="text/javascript" src="js/vendor.js"></script>
     <script type="text/javascript" src="js/app.js"></script>
-
-    <!-- Begin Inspectlet Embed Code -->
-    <!-- <script type="text/javascript" id="inspectletjs">
-    window.__insp = window.__insp || [];
-    __insp.push(['wid', 68654490]);
-    (function() {
-    function ldinsp(){if(typeof window.__inspld != "undefined") return; window.__inspld = 1; var insp = document.createElement('script'); insp.type = 'text/javascript'; insp.async = true; insp.id = "inspsync"; insp.src = ('https:' == document.location.protocol ? 'https' : 'http') + '://cdn.inspectlet.com/inspectlet.js'; var x = document.getElementsByTagName('script')[0]; x.parentNode.insertBefore(insp, x); };
-    setTimeout(ldinsp, 500); document.readyState != "complete" ? (window.attachEvent ? window.attachEvent('onload', ldinsp) : window.addEventListener('load', ldinsp, false)) : ldinsp();
-    })();
+    <!-- Offline demo code-->
+<!--     <script type="text/javascript">
+        if ('serviceWorker' in navigator) {
+          navigator.serviceWorker.register('sw.js').then(function(registration) {
+            // Registration was successful
+            console.log('ServiceWorker registration successful with scope: ',    registration.scope);
+          }).catch(function(err) {
+            // registration failed :(
+            console.log('ServiceWorker registration failed: ', err);
+          });
+        }
     </script> -->
-    <!-- End Inspectlet Embed Code -->
 </body>
 </html>

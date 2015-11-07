@@ -6,12 +6,16 @@ var express = require('express')
     ,publicPath = path.join(__dirname, '/public')
     ,app = express()
     ,server_port = process.env.OPENSHIFT_NODEJS_PORT || 3000
-    ,server_ip_address = process.env.OPENSHIFT_NODEJS_IP || '127.0.0.1'
+    ,server_ip_address = process.env.OPENSHIFT_NODEJS_IP || '192.168.88.142' // here should be your public adress
     ,loremIpsum = require('lorem-ipsum');
 
 app.use('/data', function (req, res) {
     var url = 'http://private-aa10d-global1.apiary-mock.com/poll/1';
     req.pipe(request(url)).pipe(res);
+});
+
+app.use('/login', function (req, res) {
+    res.send("Hello");
 });
 
 app.use('/text', function (req, res) {
